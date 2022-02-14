@@ -1,5 +1,11 @@
 <template>
-    <hello-world />
+    <div>
+        <hello-world />
+        <div style="margin: 20px">
+            <SchemaFormInput />
+            <SchemaFormButton />
+        </div>
+    </div>
 </template>
 
 <script>
