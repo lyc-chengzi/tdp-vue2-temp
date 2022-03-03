@@ -1,32 +1,66 @@
 <template>
-    <v-app>
-        <v-app-bar app color="primary" dark>
-            <div class="d-flex align-center">
-                <router-link to="/">Home</router-link>
-                <!--inject_template_navbar-->
-            </div>
-            <v-spacer></v-spacer>
-        </v-app-bar>
-        <v-main>
+    <v-app class="v-app">
+        <div class="viewBcontainer editContainer preview">
             <router-view />
-        </v-main>
+        </div>
     </v-app>
 </template>
-<style lang="less" scoped>
-.align-center {
-    a {
-        margin-right: 20px;
-        color: #fff;
+<script>
+export default {
+    data() {},
+    created() {},
+    mounted() {},
+};
+</script>
+<style scoped lang="less">
+.editContainer {
+    height: 100%;
+    width: 100%;
+    border: 1px solid #ccc;
+    flex-direction: column;
+    margin: 0 auto;
+    .header {
+        width: 100%;
+        display: grid;
+        border: 1px solid #ccc;
+        margin: 0 auto;
+        background: #fafafa;
+    }
+    .content {
+        width: 100%;
+        display: flex;
+        border: 1px solid #ccc;
+        margin: 0 auto;
+        background: #fafafa;
+        .aside {
+            height: 100%;
+            display: grid;
+            box-sizing: border-box;
+        }
+        .main {
+            flex: 1;
+            height: 100%;
+            overflow-x: hidden;
+            // padding: 0 10px;
+            position: relative;
+            z-index: 1;
+        }
     }
 }
 </style>
-
-<script>
-export default {
-    name: 'App',
-
-    data: () => ({
-        //
-    }),
-};
-</script>
+<style lang="less">
+.v-app.v-application {
+    height: 100%;
+}
+.mainPreview {
+    .rowCont {
+        margin: 2px 0;
+    }
+    .drag-move-box {
+        margin-top: 5px;
+    }
+}
+.previewicon {
+    padding: 0 5px 0 1px;
+}
+</style>
