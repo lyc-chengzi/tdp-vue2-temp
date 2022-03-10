@@ -7,45 +7,25 @@
 </template>
 <script>
 export default {
-    data() {},
     created() {},
     mounted() {},
 };
 </script>
 <style scoped lang="less">
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden !important;
+}
 .editContainer {
     height: 100%;
     width: 100%;
     border: 1px solid #ccc;
     flex-direction: column;
     margin: 0 auto;
-    .header {
-        width: 100%;
-        display: grid;
-        border: 1px solid #ccc;
-        margin: 0 auto;
-        background: #fafafa;
-    }
-    .content {
-        width: 100%;
-        display: flex;
-        border: 1px solid #ccc;
-        margin: 0 auto;
-        background: #fafafa;
-        .aside {
-            height: 100%;
-            display: grid;
-            box-sizing: border-box;
-        }
-        .main {
-            flex: 1;
-            height: 100%;
-            overflow-x: hidden;
-            // padding: 0 10px;
-            position: relative;
-            z-index: 1;
-        }
-    }
+    padding: 0;
+    overflow: hidden;
 }
 </style>
 <style lang="less">
