@@ -1,14 +1,13 @@
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 Vue.use(VueI18n);
-// Vue.use(I18N);
 
-const DEFAULT_LANG = 'zh';
+const DEFAULT_LANG = '///<inject_defaultLang>';
 const LOCALE_KEY = 'localeLanguage';
 
 const locales = {
-    zh: require('../../i18n/zh-CN.json'),
-    en: require('../../i18n/en-US.json'),
+    // zh_cn: require('../../i18n/zh-CN.json'),
+    ///<inject_locales>
 };
 
 const i18n = new VueI18n({

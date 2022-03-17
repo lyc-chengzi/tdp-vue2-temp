@@ -4,6 +4,7 @@ import router from './router';
 import store from './store';
 import i18n from './plugins/i18n';
 import vuetify from './plugins/vuetify';
+import './plugins/globalFunctions';
 import './plugins/elementUI';
 import './plugins/tdpComponent';
 
