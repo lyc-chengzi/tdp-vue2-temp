@@ -1,0 +1,210 @@
+.e-wrapper {
+  font-size: 14px;
+  background: #fff;
+  .btn-secondary {
+    width: 100%;
+    // height: 32px;
+    background: #f6f6f6;
+    border: 1px solid #dddddd;
+    color: #333333;
+    font-size: 14px;
+    text-align: left;
+    outline: none;
+  }
+  .btn-secondary:not(:disabled):not(.disabled):active,
+  .btn-secondary:not(:disabled):not(.disabled).active,
+  .show > .btn-secondary.dropdown-toggle {
+    background: #f6f6f6;
+    border: 1px solid #dddddd;
+    color: #333333;
+  }
+  .btn-secondary:not(:disabled):not(.disabled):active:focus,
+  .btn-secondary:not(:disabled):not(.disabled).active:focus,
+  .show > .btn-secondary.dropdown-toggle:focus {
+    box-shadow: none;
+  }
+  .btn-secondary:focus,
+  .btn-secondary.focus {
+    box-shadow: none;
+  }
+  .collapsed::after {
+    content: "﹀";
+    position: relative;
+    top: 5px;
+    left: 65%;
+    color: #999999;
+    width: 10px;
+    height: 6px;
+  }
+  .not-collapsed::after {
+    content: "︿";
+    position: relative;
+    top: -5px;
+    left: 65%;
+    color: #999999;
+  }
+  .e-margin {
+    margin: 8px 0;
+  }
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+}
+#canvasContainer {
+  .Bcontainer {
+    .custom-control {
+      padding-left: 20px;
+    }
+    .custom-radio {
+      .custom-control-input {
+        opacity: 1;
+        z-index: 1;
+      }
+    }
+  }
+
+  .custom-switch.b-custom-control-lg,
+  .input-group-lg .custom-switch {
+    padding-left: 2.8125rem;
+  }
+}
+
+.appconfigWrap::-webkit-scrollbar {
+    /*滚动条整体样式*/
+    width: 7px; /*高宽分别对应横竖滚动条的尺寸*/
+    height: 1px;
+  }
+  .appconfigWrap::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    border-radius: 10px;
+    //   -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background: #cccccc;
+  }
+  .appconfigWrap::-webkit-scrollbar-track {
+    /*滚动条里面轨道*/
+    //   -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  //   background: #eeeeee; 
+    background:#ffffff;
+  }
+
+.appconfigWrap{
+    overflow: hidden;
+}
+.appconfigWrap:hover{
+    overflow: auto;
+}
+
+.comp-scrollbar{
+    overflow: hidden;
+    scrollbar-width: thin;
+}
+.comp-scrollbar:hover{
+    overflow: auto;
+}
+.comp-scrollbar::-webkit-scrollbar {
+  /*滚动条整体样式*/
+  width: 6px; /*高宽分别对应横竖滚动条的尺寸*/
+  height: 1px;
+}
+.comp-scrollbar::-webkit-scrollbar-thumb {
+  /*滚动条里面小方块*/
+  border-radius: 10px;
+  //   -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  background: #cccccc;
+}
+.comp-scrollbar::-webkit-scrollbar-track {
+  /*滚动条里面轨道*/
+  //   -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+//   background: #eeeeee; 
+  background:#ffffff;
+}
+// #canvasContainer {
+//   position: relative;
+// }
+#canvasContainer .sc-chat-window {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  height: 400px;
+}
+#canvasContainer .sc-launcher {
+  position: absolute;
+  top: 410px;
+  left: 320px;
+  .sc-closed-icon {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+}
+// \F0140
+.mdi-menu-down::before{
+  content: "\F0140";
+}
+.theme--light.v-select div.v-select__selections{
+  color: #333;
+}
+.edit-container .theme--light.v-input input, .theme--light.v-input textarea{
+  color: #333;
+}
+.card-shadow {
+  box-shadow: 0 6px 30px 5px rgba(0, 0, 0, 0.12);
+  // box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.2),
+  //   0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12);
+}
+.loading-image {
+  width: 100%;
+  height: 120px;
+  color: #666;
+  line-height: 120px;
+  text-align: center;
+  position: absolute;
+}
+.image-slot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: #f5f7fa;
+  color: #909399;
+  font-size: 30px;
+}
+.image-content {
+  padding: 10px;
+}
+.loop-content {
+  padding: 0px;
+}
+.image-content .hover-shadow:hover {
+  box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.2),
+    0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12)!important;
+  // box-shadow: 0 0 10px 0 rgb(0 39 82 / 12%);
+}
+.card-shadow {
+  box-shadow: 0 0 10px 0 rgba(0,39,82,0.12);
+  // box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.2),
+  //   0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12);
+}
+.dialog-title{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.dialog-btn-wrapper{
+  display: flex;
+  width: 100%;
+  button {
+    margin-right: 10px;
+  }
+}
+.drag-move{
+  .v-btn--fixed{
+    z-index: 24;
+  }
+}
+.el-button--primary span{
+  color: #fff!important;
+}

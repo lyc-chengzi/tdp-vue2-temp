@@ -1,0 +1,28 @@
+.icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+.iconjiantou{
+    height: 10px;
+    width: 10px;
+}
+.iconmenu{
+    height: 16px;
+    width: 16px;
+}
+.iconlink{
+    height: 16px;
+    width: 16px;
+}
+.iconsearch{
+    height: 14px;
+    width: 14px;
+}
+.iconweb{
+  height: 20px;
+  width: 20px;
+}

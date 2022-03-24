@@ -5,9 +5,10 @@ import axios from 'axios';
 import qs from 'qs';
 import VXETable from 'vxe-table';
 import 'vxe-table/lib/style.css';
+import ref from 'vue-ref';
 
 // import Custom from '@smartplatform/ui-components/src/custom/index';
-
+Vue.use(ref);
 Vue.use(VXETable);
 VXETable.setup({
     keepSource: true,

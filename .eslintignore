@@ -1,3 +1,4 @@
 /node_modules/**
 /src/views
 /src/store
+/src/assets

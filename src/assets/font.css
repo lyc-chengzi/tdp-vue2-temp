@@ -1,0 +1,107 @@
+
+/* @font-face {
+    font-family: '马善政毛笔楷体';
+    src: url('../assets/font-family/马善政毛笔楷体.ttf');
+} */
+
+/* Montserrat
+*/
+
+@font-face {
+    font-family: 'Montserratregular';
+    src: url('../assets/font-family/Montserrat/Montserrat-Regular-8.otf');
+}
+
+@font-face {
+    font-family: 'Montserratbold';
+    src: url('../assets/font-family/Montserrat/Montserrat-Bold-3.otf');
+}
+
+@font-face {
+    font-family: 'Montserratlight';
+    src: url('../assets/font-family/Montserrat/Montserrat-Light-6.otf');
+}
+
+@font-face {
+    font-family: 'MontserratextraLight';
+    src: url('../assets/font-family/Montserrat/Montserrat-ExtraLight-5.otf');
+}
+
+/* 方正兰亭
+*/
+
+@font-face {
+    font-family: 'FZLanTingmediumBlack';
+    src: url('../assets/font-family/FZLanTing/FZLanTingHei-DB-GBK/方正兰亭中黑_GBK.TTF');
+}
+
+@font-face {
+    font-family: 'FZLanTingsimpleBlack';
+    src: url('../assets/font-family/FZLanTing/FZLanTingHeiS-R-GB/方正兰亭黑简体.TTF');
+}
+
+/* Lato
+*/
+
+@font-face {
+    font-family: 'Latoregular';
+    src: url('../assets/font-family/Lato/Lato-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Latobold';
+    src: url('../assets/font-family/Lato/Lato-Bold.ttf');
+}
+
+/* 思源黑体
+*/
+
+@font-face {
+    font-family: 'SourceHanSansCNregular';
+    src: url('../assets/font-family/SourceHanSansCN/SourceHanSansCN-Regular-2.otf');
+}
+
+@font-face {
+    font-family: 'SourceHanSansCNbold';
+    src: url('../assets/font-family/SourceHanSansCN/SourceHanSansCN-Bold-2.otf');
+}
+
+@font-face {
+    font-family: 'SourceHanSansCNheavy';
+    src: url('../assets/font-family/SourceHanSansCN/SourceHanSansCN-Heavy-2.otf');
+}
+
+@font-face {
+    font-family: 'SourceHanSansCNlight';
+    src: url('../assets/font-family/SourceHanSansCN/SourceHanSansCN-Light-2.otf');
+}
+
+@font-face {
+    font-family: 'SourceHanSansCNmedium';
+    src: url('../assets/font-family/SourceHanSansCN/SourceHanSansCN-Medium-2.otf');
+}
+
+@font-face {
+    font-family: 'SourceHanSansCNnormal';
+    src: url('../assets/font-family/SourceHanSansCN/SourceHanSansCN-Normal-2.otf');
+}
+
+
+/* Arial
+*/
+
+@font-face {
+    font-family: 'Arialregular';
+    src: url('../assets/font-family/Arial/Arial.ttf');
+}
+
+@font-face {
+    font-family: 'Arialitalic';
+    src: url('../assets/font-family/Arial/Arial-Italic.ttf');
+}
+
+@font-face {
+    font-family: 'Arialbold';
+    src: url('../assets/font-family/Arial/Arial-Bold.ttf');
+}
+
