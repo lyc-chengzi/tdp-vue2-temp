@@ -1,3 +1,4 @@
+/* eslint-disable */
 export function getResponseJson(data, apiId) {
     switch (apiId) {
     case 242:

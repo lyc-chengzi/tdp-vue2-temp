@@ -1,3 +1,4 @@
+/* eslint-disable */
 const tabsPropsGetters = {
     tabsCenter: attrsObj => {
         const allAttrs = attrsObj || {};

@@ -1,3 +1,4 @@
+/* eslint-disable */
 const drawerPropsGetters = {
     drawerShowModal: attrsObj => {
         const allAttrs = attrsObj || {};

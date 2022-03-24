@@ -1,3 +1,4 @@
+/* eslint-disable */
 import tabsPropsGetters from './compPropsData/tabsPropsDataUtil';
 import drawerPropsGetters from './compPropsData/drawerPropsDataUtil';
 

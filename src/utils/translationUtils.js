@@ -1,3 +1,4 @@
+/* eslint-disable */
 /**
  * The file is for smart platform ui-designer internationalization.
  */
