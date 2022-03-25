@@ -163,7 +163,7 @@ const actions = {
       param = apiResParams;
     }
     let appId = window.sessionStorage.getItem('appId');
-    Axios[methods](`/${appId}${url}`,param,{
+    Axios[methods](`${url}`,param,{
       headers:apiHeaderParams
     }).then(res => {
       let data = {
@@ -222,7 +222,7 @@ const actions = {
     // console.log('head参数',apiHeaderParams);
     url = getUrlAddress(reqInfo,dataInfo.apiBasic,_this);
     let appId = window.sessionStorage.getItem('appId');
-    Axios.get(`/${appId}${url}`,{
+    Axios.get(`${url}`,{
       headers:apiHeaderParams
     }).then(res =>{
       let data = {

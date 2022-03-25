@@ -6,8 +6,11 @@
     </v-app>
 </template>
 <script>
+import startup from './startup';
 export default {
-    created() {},
+    created() {
+        startup.startupApp(this);
+    },
     mounted() {},
 };
 </script>
