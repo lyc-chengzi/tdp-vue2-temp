@@ -5,6 +5,7 @@ import store from './store';
 import i18n from './plugins/i18n';
 import vuetify from './plugins/vuetify';
 import { ssrWindow, extend } from 'ssr-window';
+import startup from './startup';
 import _ from 'lodash';
 import './plugins/bootstrap-vue';
 import './plugins/globalFunctions';
@@ -43,6 +44,9 @@ Vue.prototype.findComponentsByRef = function findComponentsByRef(ref) {
     });
 };
 
+startup.registerGlobalVal({
+    router,
+});
 const appVue = new Vue({
     router,
     store,
@@ -50,7 +54,9 @@ const appVue = new Vue({
     i18n,
     render: h => h(App),
 }).$mount('#app');
-
+startup.registerGlobalVal({
+    app: appVue,
+});
 extend(ssrWindow, {
     appVue: appVue,
 });
