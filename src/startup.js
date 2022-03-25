@@ -1,5 +1,5 @@
 import dataController from './store/dataController';
-import pageJson from 'startup.json';
+import pageJson from './startup.json';
 // 1.初始化vuex数据
 const startup = {
     startupApp: function (app) {
