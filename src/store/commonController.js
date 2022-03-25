@@ -1,6 +1,7 @@
 import { _ } from 'core-js';
 import Vue from 'vue';
 import { setGlobalVariable } from '../utils/functionUtils.js';
+import startup from '../startup';
 export const state = () => ({
     app: {
         appId: '', //新建应用的ID

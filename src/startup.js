@@ -1,27 +1,10 @@
 import dataController from './store/dataController';
+import pageJson from 'startup.json';
 // 1.初始化vuex数据
 const startup = {
     startupApp: function (app) {
-        const pageList = [
-            {
-                id: 'Page-U5QM7N16481121406450824',
-                label: 'Page1',
-                ifCopy: '2',
-                ifFromPage: '2',
-                pageId: '',
-                type: '1',
-            },
-            {
-                id: 'Page-Igz6eu16481756305570751',
-                label: 'Page2',
-                ifFromPage: '2',
-                ifCopy: '2',
-                pageId: '',
-                type: '1',
-            },
-        ];
-        pageList.forEach(page => {
-            app.$store.commit('commonController/addNewPage', page);
+        pageJson.forEach(page => {
+            app.$store.commit('commonController/addNewPage', page.commonPage);
             app.$store.registerModule(page.id, dataController);
         });
     },
