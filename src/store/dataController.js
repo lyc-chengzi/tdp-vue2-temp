@@ -2,9 +2,9 @@ import Vue from 'vue';
 import { componentTypeApiData } from '../utils/apiDataUtils';
 import { getGlobalVariableByKey, setGlobalVariable } from '../utils/functionUtils';
 import { extApiData, dealGlobalVariable } from '../utils/apiDataExtUtils';
-import { ssrWindow } from 'ssr-window';
 import { Message } from 'element-ui';
 import Axios from 'axios';
+import startup from '../startup';
 export const state = () => ({
     componentAttr: [],
     refData: [],
@@ -106,6 +106,7 @@ const getters = {
 };
 const actions = {
     apiHandler({ dispatch }, data) {
+        console.log(1111111111111, data);
         if (!data.apiBasic.apiMethod) return;
         if (data.apiBasic.apiMethod == 'GET') {
             dispatch('getRequestHandler', data);
@@ -238,6 +239,7 @@ const actions = {
                     info: dataInfo,
                     resData: res,
                 };
+                console.log(222222222222222, data);
                 if (dataInfo.apiBasic.apiCont.successCode) {
                     callbackCode(dataInfo.apiBasic.apiCont.successCode, _this, res);
                 }
@@ -266,6 +268,7 @@ const actions = {
         var resdata;
         let apiItemize = dataInfo.col.apiItemize;
         let colType = apiItemize || dataInfo.col.type;
+        console.log('getThenData', dataInfo, colType);
         let colApiBasic = dataInfo.apiBasic;
         if (colApiBasic.providerType !== 'dm') {
             resdata = extApiData(colType, colApiBasic, data.resData.data, dataInfo);
@@ -344,33 +347,44 @@ const mutations = {
     },
     //根据api返回数据处理
     changeCurrentApiData(state, dataList) {
-        // console.log(dataList,'获取数据++++++++++++++++');
-        let _this = this;
-        if (!['card', 'loop', 'flex', 'tabs'].includes(dataList.col.type)) {
-            Vue.set(
-                ssrWindow.appVue.$root.findComponentsByRef(dataList.col.ref).$parent.record.col,
-                'apiData',
-                dataList.resdata
-            );
-            const colType = dataList.col.type;
-            if (colType.includes('tableCount') || colType.includes('Table')) {
-                Vue.set(
-                    ssrWindow.appVue.$root.findComponentsByRef(dataList.col.ref).$parent.record.col
-                        .tableHeaderList,
-                    'value',
-                    dataList.resdata.columns
-                );
+        console.log(dataList,'获取数据++++++++++++++++');
+        const $ref = Vue.prototype.findComponentsByRef(dataList.col.ref);
+        if ($ref.length < 1) return;
+        const $$ref = $ref[0];
+        console.log('$$ref', $$ref);
+        $$ref.apiData = dataList.resdata;
+        if (colType.includes('tableCount') || colType.includes('Table')) {
+            if (!$$ref.tableHeaderList) {
+                $$ref.tableHeaderList = {value: []};
             }
-        } else if (
-            !!ssrWindow.appVue.$root.findComponentsByRef(dataList.col.key).record &&
-            ssrWindow.appVue.$root.findComponentsByRef(dataList.col.key).record.indraggable
-        ) {
-            Vue.set(
-                ssrWindow.appVue.$root.findComponentsByRef(dataList.col.key).record.col,
-                'apiData',
-                dataList.resdata
-            );
+            $$ref.tableHeaderList.value = dataList.resdata.columns;
         }
+        // if (!['card', 'loop', 'flex', 'tabs'].includes(dataList.col.type)) {
+        //     // Vue.set(
+        //     //     $ref.$parent.record.col,
+        //     //     'apiData',
+        //     //     dataList.resdata
+        //     // );
+           
+        //     const colType = dataList.col.type;
+        //     if (colType.includes('tableCount') || colType.includes('Table')) {
+        //         Vue.set(
+        //             $ref.$parent.record.col
+        //                 .tableHeaderList,
+        //             'value',
+        //             dataList.resdata.columns
+        //         );
+        //     }
+        // } else if (
+        //     !!$key.record &&
+        //     $key.record.indraggable
+        // ) {
+        //     Vue.set(
+        //         $key.record.col,
+        //         'apiData',
+        //         dataList.resdata
+        //     );
+        // }
     },
     //根据选择的api传给元件api配置信息
     changeSelectApiBasic(state, data) {
@@ -483,6 +497,7 @@ function callbackCode(code, that, resData) {
 }
 //处理from-data请求data
 function getReqFromData(info, that) {
+    const app = startup.getGlobalVal('app');
     let _this = that;
     let apiBasic = info.apiBasic;
     let resfrom = {};
@@ -504,7 +519,7 @@ function getReqFromData(info, that) {
         }
         return files;
     } else {
-        return ssrWindow.appVue.$root.$qs.stringify(resfrom);
+        return app.$root.$qs.stringify(resfrom);
     }
 }
 //处理api参数逻辑
@@ -540,11 +555,12 @@ function getResParams(info, that, methods, apiData) {
 }
 //根据选择的参数类型，固定值，组件变量，全局变量类型来获取value
 function commonGetReqParamsValue(originType, modelValue, _this, type) {
+    const app = startup.getGlobalVal('app');
     let value;
     if (originType == 1) {
-        value = !ssrWindow.appVue.$root.findComponentsByRef(modelValue)
+        value = !app.findComponentsByRef(modelValue)
             ? ''
-            : ssrWindow.appVue.$root.findComponentsByRef(modelValue).getValue();
+            : app.findComponentsByRef(modelValue).getValue();
     } else if (originType == 2) {
         value = modelValue;
     } else if (originType == 3) {

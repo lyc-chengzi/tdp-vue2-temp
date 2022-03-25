@@ -4,7 +4,6 @@ import router from './router';
 import store from './store';
 import i18n from './plugins/i18n';
 import vuetify from './plugins/vuetify';
-import { ssrWindow, extend } from 'ssr-window';
 import startup from './startup';
 import _ from 'lodash';
 import './plugins/bootstrap-vue';
@@ -21,19 +20,22 @@ import './assets/iconfont/iconfont.js';
 
 Vue.config.productionTip = false;
 
-Vue.prototype.findComponents = function findComponents(componentName, rootContext) {
+function findComponents(componentName, rootContext) {
     let context = rootContext || this;
-    if (!rootContext && this === window) {
-        context = ssrWindow.appVue.$root;
+    const app = startup.getGlobalVal('app');
+    if (!rootContext && app) {
+        context = app;
     }
     return context.$children.reduce((components, child) => {
         if (child.$options.name === componentName) components.push(child);
         const foundChilds = findComponents(componentName, child);
         return components.concat(foundChilds);
     }, []);
-};
+}
 
-Vue.prototype.findComponentsByRef = function findComponentsByRef(ref) {
+Vue.prototype.findComponents = findComponents;
+
+function findComponentsByRef(ref) {
     let _this = this;
     let currentPageAllComponent = _this
         .findComponents('SchemaFormItem')
@@ -42,21 +44,23 @@ Vue.prototype.findComponentsByRef = function findComponentsByRef(ref) {
     return _.filter(currentPageAllComponent, function (component) {
         return component.$vnode.data.ref === ref;
     });
-};
+}
 
-startup.registerGlobalVal({
-    router,
-});
+Vue.prototype.findComponentsByRef = findComponentsByRef;
+
 const appVue = new Vue({
     router,
     store,
     vuetify,
     i18n,
     render: h => h(App),
-}).$mount('#app');
+});
+
 startup.registerGlobalVal({
     app: appVue,
+    router,
+    findComponentsByRef,
+    findComponents,
 });
-extend(ssrWindow, {
-    appVue: appVue,
-});
+
+appVue.$mount('#app');
