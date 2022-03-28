@@ -106,7 +106,6 @@ const getters = {
 };
 const actions = {
     apiHandler({ dispatch }, data) {
-        console.log(1111111111111, data);
         if (!data.apiBasic.apiMethod) return;
         if (data.apiBasic.apiMethod == 'GET') {
             dispatch('getRequestHandler', data);
@@ -239,7 +238,6 @@ const actions = {
                     info: dataInfo,
                     resData: res,
                 };
-                console.log(222222222222222, data);
                 if (dataInfo.apiBasic.apiCont.successCode) {
                     callbackCode(dataInfo.apiBasic.apiCont.successCode, _this, res);
                 }
@@ -351,40 +349,16 @@ const mutations = {
         const $ref = Vue.prototype.findComponentsByRef(dataList.col.ref);
         if ($ref.length < 1) return;
         const $$ref = $ref[0];
-        console.log('$$ref', $$ref);
-        $$ref.apiData = dataList.resdata;
+        const $page = Vue.prototype.findParentPage($$ref);
+        if (!$page) return;
+        $page[`${dataList.col.ref}_apiData`] = dataList.resdata;
+        // Vue.set($$ref, 'apiData', dataList.resdata);
         if (colType.includes('tableCount') || colType.includes('Table')) {
             if (!$$ref.tableHeaderList) {
                 $$ref.tableHeaderList = {value: []};
             }
             $$ref.tableHeaderList.value = dataList.resdata.columns;
         }
-        // if (!['card', 'loop', 'flex', 'tabs'].includes(dataList.col.type)) {
-        //     // Vue.set(
-        //     //     $ref.$parent.record.col,
-        //     //     'apiData',
-        //     //     dataList.resdata
-        //     // );
-           
-        //     const colType = dataList.col.type;
-        //     if (colType.includes('tableCount') || colType.includes('Table')) {
-        //         Vue.set(
-        //             $ref.$parent.record.col
-        //                 .tableHeaderList,
-        //             'value',
-        //             dataList.resdata.columns
-        //         );
-        //     }
-        // } else if (
-        //     !!$key.record &&
-        //     $key.record.indraggable
-        // ) {
-        //     Vue.set(
-        //         $key.record.col,
-        //         'apiData',
-        //         dataList.resdata
-        //     );
-        // }
     },
     //根据选择的api传给元件api配置信息
     changeSelectApiBasic(state, data) {
