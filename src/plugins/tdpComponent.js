@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import SearchForm from '@smartplatform/ui-components/src/index';
 import VeCharts from '@smartplatform/ui-components/src/ve-chart/index';
+import FunctionalComponent from '@smartplatform/ui-components/src/functional/index';
 import axios from 'axios';
 import qs from 'qs';
 import VXETable from 'vxe-table';
@@ -8,6 +9,9 @@ import 'vxe-table/lib/style.css';
 import ref from 'vue-ref';
 import _ from 'lodash';
 import startup from '../startup';
+import draggable from 'vuedraggable';
+
+Vue.component('draggable', draggable);
 
 // import Custom from '@smartplatform/ui-components/src/custom/index';
 Vue.use(ref);
@@ -24,8 +28,10 @@ Vue.prototype.$axios = axios;
 Vue.prototype.$XModal = VXETable.modal;
 Vue.use(SearchForm);
 Vue.use(VeCharts);
+Vue.use(FunctionalComponent);
 Vue.component('SchemaFormItem', SearchForm.SchemaFormItem);
 Vue.component('VeChartItem', VeCharts.VeChartItem);
+Vue.component('FunctionalItem', FunctionalComponent.FunctionalItem);
 
 function findComponents(componentName, rootContext) {
     let context = rootContext || this;
