@@ -6,10 +6,10 @@
     </v-app>
 </template>
 <script>
-import startup from './startup';
+import { AppManager } from './plugins/global';
 export default {
     created() {
-        startup.startupApp(this);
+        AppManager.getApp().startupApp(this);
     },
     mounted() {},
 };

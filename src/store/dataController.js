@@ -4,7 +4,7 @@ import { getGlobalVariableByKey, setGlobalVariable } from '../utils/functionUtil
 import { extApiData, dealGlobalVariable } from '../utils/apiDataExtUtils';
 import { Message } from 'element-ui';
 import Axios from 'axios';
-import startup from '../startup';
+import { AppManager } from '../plugins/global';
 export const state = () => ({
     componentAttr: [],
     refData: [],
@@ -471,7 +471,7 @@ function callbackCode(code, that, resData) {
 }
 //处理from-data请求data
 function getReqFromData(info, that) {
-    const app = startup.getGlobalVal('app');
+    const app = AppManager.getApp().getGlobalVal('app');
     let _this = that;
     let apiBasic = info.apiBasic;
     let resfrom = {};
@@ -529,7 +529,7 @@ function getResParams(info, that, methods, apiData) {
 }
 //根据选择的参数类型，固定值，组件变量，全局变量类型来获取value
 function commonGetReqParamsValue(originType, modelValue, _this, type) {
-    const app = startup.getGlobalVal('app');
+    const app = AppManager.getApp().getGlobalVal('app');
     let value;
     if (originType == 1) {
         value = !app.findComponentsByRef(modelValue)

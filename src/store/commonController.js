@@ -1,7 +1,7 @@
 import { _ } from 'core-js';
 import Vue from 'vue';
 import { setGlobalVariable } from '../utils/functionUtils.js';
-import startup from '../startup';
+import { AppManager } from '../plugins/global';
 export const state = () => ({
     app: {
         appId: '', //新建应用的ID
@@ -146,7 +146,7 @@ const mutations = {
                     });
                 });
             }
-            const router = startup.getGlobalVal('router');
+            const router = AppManager.getApp().getGlobalVal('router');
             if (router) {
                 router.push(`/views/${data.id}`);
             }

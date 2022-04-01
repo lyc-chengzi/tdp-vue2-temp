@@ -8,7 +8,7 @@ import VXETable from 'vxe-table';
 import 'vxe-table/lib/style.css';
 import ref from 'vue-ref';
 import _ from 'lodash';
-import startup from '../startup';
+import { AppManager } from './global';
 import draggable from 'vuedraggable';
 
 Vue.component('draggable', draggable);
@@ -35,7 +35,7 @@ Vue.component('FunctionalItem', FunctionalComponent.FunctionalItem);
 
 function findComponents(componentName, rootContext) {
     let context = rootContext || this;
-    const app = startup.getGlobalVal('app');
+    const app = AppManager.getApp().getGlobalVal('app');
     if (!rootContext && app) {
         context = app;
     }
